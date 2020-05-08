@@ -19,20 +19,31 @@ font_data = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Title" type="RichTextLabel" parent="."]
+margin_left = 8.0
 margin_top = 48.0
-margin_right = 637.0
-margin_bottom = 101.0
-rect_rotation = -0.159384
+margin_right = 632.0
+margin_bottom = 152.0
 custom_fonts/normal_font = SubResource( 1 )
 text = "Dr Octopus Guesser"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Objectif" type="RichTextLabel" parent="."]
+margin_left = 8.0
+margin_top = 136.0
+margin_right = 632.0
+margin_bottom = 240.0
+custom_fonts/normal_font = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Message" type="RichTextLabel" parent="."]
-margin_top = 196.0
-margin_right = 640.0
-margin_bottom = 250.0
+margin_left = 8.0
+margin_top = 288.0
+margin_right = 633.0
+margin_bottom = 404.0
 rect_rotation = -0.0154324
 custom_fonts/normal_font = SubResource( 2 )
 text = "Some Text"
@@ -41,9 +52,10 @@ __meta__ = {
 }
 
 [node name="Lesser" type="Button" parent="."]
-margin_top = 752.0
-margin_right = 302.0
-margin_bottom = 833.0
+margin_left = 8.0
+margin_top = 696.0
+margin_right = 310.0
+margin_bottom = 777.0
 custom_fonts/font = SubResource( 3 )
 text = "Lesser"
 __meta__ = {
@@ -51,10 +63,10 @@ __meta__ = {
 }
 
 [node name="Greater" type="Button" parent="."]
-margin_left = 336.0
-margin_top = 752.0
-margin_right = 640.0
-margin_bottom = 833.0
+margin_left = 328.0
+margin_top = 696.0
+margin_right = 632.0
+margin_bottom = 777.0
 custom_fonts/font = SubResource( 3 )
 text = "Greater"
 __meta__ = {
@@ -62,11 +74,21 @@ __meta__ = {
 }
 
 [node name="Correct" type="Button" parent="."]
-margin_top = 872.0
-margin_right = 640.0
-margin_bottom = 953.0
+margin_left = 8.0
+margin_top = 792.0
+margin_right = 632.0
+margin_bottom = 873.0
 custom_fonts/font = SubResource( 3 )
 text = "Correct"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+[connection signal="pressed" from="Lesser" to="." method="_on_Lesser_pressed"]
+[connection signal="pressed" from="Greater" to="." method="_on_Greater_pressed"]
+[connection signal="pressed" from="Correct" to="." method="_on_Correct_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
